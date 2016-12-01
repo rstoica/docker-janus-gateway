@@ -1,5 +1,5 @@
-FROM ubuntu:14.04
-MAINTAINER Philip Shaw <philip.shaw@reddersky.com>
+FROM ubuntu:16.04
+# MAINTAINER Philip Shaw <philip.shaw@reddersky.com>
 # Copy installation scripts in
 COPY *.sh ./
 # Copy the apache configuration files ready for when we need them
@@ -20,7 +20,9 @@ RUN ./websockets.sh
 RUN ./apache.sh
 # Fetch, build and install the gateway
 RUN ./janus.sh
+# Copy Janus config files
+COPY janus/janus.plugin.streaming.cfg /opt/janus/etc/janus/
 # Declare the ports we use
-EXPOSE 80 8088 8188
+EXPOSE 5004 5004/udp 80 8088 8188 
 # Define the default start-up command
 CMD ./startup.sh

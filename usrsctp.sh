@@ -4,4 +4,4 @@ cd usrsctp
 ./bootstrap
 ./configure --prefix=/usr
 make
-sudo make install
+make install

@@ -1,1 +1,1 @@
-apt-get install -y wget make git doxygen graphviz cmake
+apt-get install -y build-essential wget make git doxygen graphviz cmake
